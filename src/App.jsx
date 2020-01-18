@@ -1,12 +1,16 @@
 import React, { PureComponent } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import ChildComponent from './ChildComponent';
 import { Decorator } from './decorator';
 
 export default
 @Decorator()
 class App extends PureComponent {
+  componentDidUpdate() {
+    console.log('isParentUpdate');
+  }
+
   render() {
     return (
       <div className="App">
@@ -23,6 +27,7 @@ class App extends PureComponent {
           >
             Learn React
           </a>
+          <ChildComponent />
         </header>
       </div>
     );
